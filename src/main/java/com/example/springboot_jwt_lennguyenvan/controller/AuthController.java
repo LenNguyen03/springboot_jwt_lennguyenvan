@@ -55,6 +55,23 @@ public class AuthController {
     }
 
 
+    @GetMapping("/hello")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity hello(){
+        return ResponseEntity.ok("hello mother !!");
+    }
 
+    @PutMapping("/user")
+    @PreAuthorize("hasAnyAuthority('USER_UPDATE')")
+    public ResponseEntity update(){
+        return ResponseEntity.ok("Đây là update nè !");
+    }
+
+
+    @GetMapping("/admin")
+    @PreAuthorize("hasAnyAuthority('ADMIN_DELETE')")
+    public ResponseEntity hello1(){
+        return ResponseEntity.ok("hello mother !!");
+    }
 
 }
